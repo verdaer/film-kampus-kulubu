@@ -1,0 +1,376 @@
+/* src/index.css - Pembe Tema */
+
+/* Renk Paleti */
+:root {
+    --primary-color: #e91e63; /* Canlı Pembe / Fuşya */
+    --primary-dark: #ad1457; /* Koyu Pembe */
+    --secondary-color: #ffc107; /* Sarımsı Vurgu */
+    --background-light: #fbebf1; /* Açık Pembe Arka Plan */
+    --text-dark: #333;
+    --text-light: #fff;
+    --card-bg: #fff;
+    --border-color: #f0c4d3;
+}
+
+/* Genel Sıfırlama ve Font */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    color: var(--primary-color);
+    background-color: var(--card-bg);
+    border-bottom: 3px solid var(--primary-color);
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+/* Ana Düzen */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-area {
+    display: flex;
+    max-width: 1400px;
+    width: 100%;
+    margin: 20px auto;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.tv-list-area {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Arama ve Filtreler Stili --- */
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"], select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: bold;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* --- TV Listesi ve Kartlar Stili --- */
+
+.tv-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+.tv-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.tv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-poster {
+    width: 120px;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h4 {
+    margin-top: 0;
+    color: var(--primary-dark);
+}
+
+.meta {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+.summary-text {
+    font-size: 0.85em;
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+.detail-button {
+    background-color: #4CAF50; /* Yeşil */
+    color: white;
+}
+
+.watchlist-button {
+    background-color: var(--secondary-color); /* Sarı Vurgu */
+    color: var(--text-dark);
+}
+
+.detail-button:hover { background-color: #388e3c; }
+.watchlist-button:hover { background-color: #ff9800; }
+
+/* --- Watchlist (Gösterime Girecekler) Stili --- */
+
+.watchlist-panel {
+    flex: 1;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    height: fit-content;
+    border: 1px solid var(--border-color);
+}
+
+.watchlist-panel h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    color: var(--primary-dark);
+}
+
+.watchlist-list {
+    list-style: none;
+    padding: 0;
+}
+
+.watchlist-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.watchlist-item-name {
+    color: var(--primary-color);
+    text-decoration: none;
+    flex-grow: 1;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.remove-button {
+    background-color: #dc3545; /* Kırmızı */
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+.clear-button {
+    background-color: #6c757d;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* --- Pagination Stili --- */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 10px;
+}
+
+/* --- Footer Stili --- */
+
+footer {
+    background-color: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    border-top: 5px solid var(--primary-color);
+}
+
+/* --- Detay Sayfası Stili --- */
+
+.show-detail-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-top: 5px solid var(--primary-color);
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.show-info {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.show-poster-detail {
+    width: 250px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.show-header h2 {
+    margin-top: 0;
+    color: var(--primary-dark);
+}
+
+.summary {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.episodes-list h3 {
+    color: var(--primary-dark);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.episodes-list li {
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--border-color);
+    font-size: 0.9em;
+}
+
+/* --- Conditional Rendering (Durum Bileşenleri) Stili --- */
+
+.loading-spinner, .error-component, .empty-state {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+.loading-spinner {
+    color: var(--primary-color);
+}
+
+.loading-spinner::before {
+    content: "💖"; 
+    display: block;
+    font-size: 3em;
+    animation: pulse 1s infinite;
+    margin-bottom: 15px;
+}
+
+.error-component {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    background-color: #f8d7da;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 992px altındaki cihazlar için mobil uyumluluk */
+@media (max-width: 992px) {
+    .content-area {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .watchlist-panel {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    
+    .tv-list {
+        grid-template-columns: 1fr;
+    }
+
+    .show-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .show-poster-detail {
+        width: 150px;
+    }
+}
